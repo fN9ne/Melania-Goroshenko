@@ -1,6 +1,11 @@
 .header {
   padding: 15px 0;
   background: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 6;
+  left: 0;
+  width: 100%;
   /* burger carpet */
   /* mobile content */
   /* when burger active */
@@ -77,6 +82,7 @@
 .header__burger {
   width: 50px;
   height: 51px;
+  cursor: pointer;
   z-index: 2;
   position: relative;
   -webkit-transform: translate(10px, 0);

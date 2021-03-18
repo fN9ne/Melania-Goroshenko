@@ -170,8 +170,9 @@ body._lock {
 
 .blot-btn {
   padding: 20px 30px 20px 40px;
-  background: url("../img/btn_bg.png") center center/cover no-repeat;
+  background: url("../img/btn_bg.png") center center/100% 100% no-repeat;
   font-size: 15px;
+  text-align: center;
   font-weight: 500;
   color: #F8F6EB;
   display: block;
@@ -318,4 +319,4 @@ body._lock {
   }
 }
 
-.webp .blot-btn { background: url(../img/btn_bg.webp) center center/cover no-repeat; }
+.webp .blot-btn { background: url(../img/btn_bg.webp) center center/100% 100% no-repeat; }

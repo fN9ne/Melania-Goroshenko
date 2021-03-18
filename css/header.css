@@ -117,6 +117,8 @@
 }
 
 .header__mobile {
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
   position: fixed;
   top: 81px;
   height: calc(100% - 81px);

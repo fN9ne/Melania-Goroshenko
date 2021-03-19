@@ -198,7 +198,7 @@ $(document).ready(function(){
 		}
 		function boundHeightBlock() {
 			if ($(window).width() <= 992) {
-				$('.welcome').css('min-height', 0);
+				$('.welcome').css('min-height', 568);
 			} else {
 				if ($(window).height() <= 720) {
 					$('.welcome').css('min-height', '720px');
@@ -211,9 +211,13 @@ $(document).ready(function(){
 		});
 	}
 	if ($('.welcome').length > 0) {
-		/* parallax */
-		let elem = $('.welcome'),
-				pos = elem.offset(),
+		parallax($('.welcome'), $('.welcome-parallax_translate'), $('.welcome-parallax_rotate'));
+	}
+	if ($('.about').length > 0) {
+		parallax($('.about'), $('.about-parallax_translate'), $('.about-parallax_rotate'));
+	}
+	function parallax(elem, translate, rotate) {
+		let pos = elem.offset(),
 				elem_left = pos.left,
 				elem_top = pos.top,
 				elem_width = elem.width(),
@@ -224,19 +228,21 @@ $(document).ready(function(){
 			elem.mousemove(function(e) {
 				x_center = (elem_width / 2) - (e.pageX - elem_left);
 				y_center = (elem_width / 2) - (e.pageY - elem_top);
-				$('.welcome-parallax_translate').each(function() {
+				translate.each(function() {
 					let speed = $(this).attr('data-speed'),
 							xPos = Math.round(-x_center / 20 * speed),
 							yPos = Math.round(y_center / 20 * speed);
 					$(this).css('transform', `translate(${xPos}px, ${yPos}px)`);
 				});
-				$('.welcome-parallax_rotate').each(function() {
-					let speed = $(this).attr('data-speed'),
-							xPos = Math.round(-x_center / 40 * speed),
-							yPos = Math.round(y_center / 40 * speed);
-					$(this).css('transform', `rotate(${xPos+yPos}deg)`);
-				});
+				if (rotate.length > 0) {
+				rotate.each(function() {
+						let speed = $(this).attr('data-speed'),
+								xPos = Math.round(-x_center / 40 * speed),
+								yPos = Math.round(y_center / 40 * speed);
+						$(this).css('transform', `rotate(${xPos+yPos}deg)`);
+					});
+				}
 			});
 		}
-	}
+	};
 });

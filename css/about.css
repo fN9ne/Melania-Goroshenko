@@ -66,7 +66,7 @@
 .about-parallax_2 {
   bottom: calc(-150px + -50 * ((100vw - 992px) / (1920 - 992)));
   right: -50px;
-  width: calc(230px + 100 * ((100vw - 992px) / (1920 - 992)));
+  width: calc(149px + 100 * ((100vw - 992px) / (1920 - 992)));
 }
 
 .about-parallax_3 {

@@ -214,7 +214,10 @@ $(document).ready(function(){
 		parallax($('.welcome'), $('.welcome-parallax_translate'), $('.welcome-parallax_rotate'));
 	}
 	if ($('.about').length > 0) {
-		parallax($('.about'), $('.about-parallax_translate'), $('.about-parallax_rotate'));
+		parallax($('.about, .consult'), $('.about-parallax_translate'), $('.about-parallax_rotate'));
+	}
+	if ($('.consult').length > 0) {
+		parallax($('.about, .consult'), $('.consult-parallax_translate'), $('.consult-parallax_rotate'));
 	}
 	function parallax(elem, translate, rotate) {
 		let pos = elem.offset(),

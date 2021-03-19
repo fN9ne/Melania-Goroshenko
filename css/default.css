@@ -287,6 +287,29 @@ body._lock {
   color: #50603F;
 }
 
+.title_strip {
+  position: relative;
+}
+
+.title_strip span {
+  position: relative;
+  z-index: 1;
+}
+
+.title_strip:before {
+  content: '';
+  width: calc(100% + 10px);
+  position: absolute;
+  height: 10px;
+  z-index: 0;
+  bottom: calc(0px + 6 * ((100vw - 320px) / (1920 - 320)));
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  background: #DDBC78;
+}
+
 .desc {
   font-family: 'Gotham';
   font-size: calc(13px + 7 * ((100vw - 320px) / (1920 - 320)));

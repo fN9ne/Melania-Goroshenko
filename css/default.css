@@ -342,6 +342,62 @@ body._lock {
   width: 100%;
 }
 
+.select {
+  position: relative;
+}
+
+.select input {
+  display: none;
+}
+
+.select__current {
+  cursor: pointer;
+}
+
+.select__current li {
+  list-style: none;
+  background: none;
+  padding: 0;
+  font-size: calc(16px + 4 * ((100vw - 320px) / (1920 - 320)));
+}
+
+.select__list {
+  top: 100%;
+  left: 15px;
+  opacity: 0;
+  z-index: 1;
+  visibility: hidden;
+  position: absolute;
+  -webkit-transition: all 250ms cubic-bezier(0.37, 0, 0.63, 1);
+  -o-transition: all 250ms cubic-bezier(0.37, 0, 0.63, 1);
+  transition: all 250ms cubic-bezier(0.37, 0, 0.63, 1);
+  width: calc(100% - 30px);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.select__option {
+  cursor: pointer;
+  background: #fff;
+  padding: 7px 5px;
+  border-bottom: 1px solid #50603F;
+  color: #50603F;
+  font-size: 18px;
+  font-family: 'Gotham';
+  -webkit-transition: all 250ms cubic-bezier(0.37, 0, 0.63, 1);
+  -o-transition: all 250ms cubic-bezier(0.37, 0, 0.63, 1);
+  transition: all 250ms cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+.select__option:last-child {
+  border-bottom: 0;
+}
+
+.select._active .select__list {
+  opacity: 1;
+  visibility: visible;
+}
+
 @media (min-width: 992px) {
   .blot-btn:hover,
   .blot-btn:focus {
@@ -358,6 +414,10 @@ body._lock {
   .socials__item a:hover,
   .socials__item a:focus {
     color: #252525;
+  }
+
+  .select__option:hover {
+    background: #F8F6EB;
   }
 }
 

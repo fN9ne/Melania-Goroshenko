@@ -185,6 +185,10 @@ move();
 $(document).ready(function(){
 	if ($('.header').length > 0) {
 		let burger = $('.header__burger');
+		$('.menu__item, .header__btn').click(function() {
+			$('header').removeClass('_active');
+			$('body').removeClass('_lock');
+		});
 		burger.click(function() {
 			$('header').toggleClass('_active');
 			$('body').toggleClass('_lock');
@@ -282,6 +286,30 @@ $(document).ready(function(){
 			el: '.courses-pagination',
 			clickable: true,
 		},
-
 	});
+	/* select */
+	for (let i = 0; i < $('.select').length; i++) {
+		let sel = $('.select').eq(i);
+		let curr = sel.find('.select__current');
+		let opt = sel.find('.select__option');
+		let list = sel.find('.select__list');
+		let input = sel.find('input');
+		curr.click(function() {
+			sel.toggleClass('_active');
+		});
+		opt.click(function() {
+			list.append(curr.find('.select__option'));
+			curr.html($(this));
+			input.val($(this).html());
+			sel.removeClass('_active');
+		});
+		$(document).click(function(e) {
+			if (!e.target.closest('.select')) {
+				sel.removeClass('_active');
+			}
+		});
+	}
+	if ($('.order').length > 0) {
+		parallax($('.order'), $('.order-parallax_translate'), $('.order-parallax_rotate'))
+	}
 });

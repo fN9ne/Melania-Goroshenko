@@ -312,4 +312,15 @@ $(document).ready(function(){
 	if ($('.order').length > 0) {
 		parallax($('.order'), $('.order-parallax_translate'), $('.order-parallax_rotate'))
 	}
+	new Swiper('.reviews__slider', {
+		speed: 500,
+		navigation: {
+			nextEl: '.reviews-next',
+			prevEl: '.reviews-prev',
+		},
+		pagination: {
+			el: '.reviews-pagination',
+			clickable: true,
+		}
+	});
 });

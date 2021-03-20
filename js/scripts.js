@@ -323,4 +323,5 @@ $(document).ready(function(){
 			clickable: true,
 		}
 	});
+	$('#year').html(new Date().getFullYear());
 });

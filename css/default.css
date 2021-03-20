@@ -232,6 +232,16 @@ body._lock {
   transition: all 250ms cubic-bezier(0.37, 0, 0.63, 1);
 }
 
+.menu__logo {
+  font-size: calc(35px + 10 * ((100vw - 320px) / (1920 - 320)));
+  line-height: 125%;
+}
+
+.menu__logo a {
+  opacity: 1 !important;
+  color: #677A61;
+}
+
 .socials {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -481,6 +491,10 @@ body._lock {
     background: #E8985D;
   }
 
+  .menu__logo a:hover {
+    color: #677A61 !important;
+  }
+
   .socials__item a:hover,
   .socials__item a:focus {
     color: #252525;
@@ -518,6 +532,10 @@ body._lock {
 
   .menu__item a {
     padding: 12.5px 0;
+  }
+
+  .menu__logo a {
+    font-size: 40px;
   }
 
   .socials__item {

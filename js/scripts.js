@@ -256,4 +256,32 @@ $(document).ready(function(){
 			scrollTop: $($.attr(this, 'href')).offset().top
 		}, 500);
 	});
+	/* courses slider */
+	new Swiper('.courses__slider', {
+		speed: 1000,
+		breakpoints: {
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 50,
+				slidesPerGroup: 1,
+			},
+			992: {
+				slidesPerView: 2,
+				slidesPerGroup: 2,
+			},
+			1280: {
+				slidesPerView: 3,
+				slidesPerGroup: 3,
+			},
+		},
+		navigation: {
+			nextEl: '.courses-next',
+			prevEl: '.courses-prev',
+		},
+		pagination: {
+			el: '.courses-pagination',
+			clickable: true,
+		},
+
+	});
 });

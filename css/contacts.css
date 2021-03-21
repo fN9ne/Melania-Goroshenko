@@ -1,5 +1,5 @@
 .contacts {
-  padding: 0 0 70px 0;
+  padding: 100px 0 70px 0;
 }
 
 .contacts__container {
@@ -142,6 +142,10 @@
 }
 
 @media (max-width: 992px) {
+  .contacts {
+    padding: 85px 0 70px 0;
+  }
+
   .contacts__content {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

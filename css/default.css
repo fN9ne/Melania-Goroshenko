@@ -172,6 +172,61 @@ body._lock {
   overflow: hidden;
 }
 
+.alert {
+  position: fixed;
+  top: 20px;
+  width: 280px;
+  padding: 10px;
+  left: 50%;
+  font-family: 'Gotham';
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  z-index: 19;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: #fafafa;
+  -webkit-animation: alert 5s ease forwards;
+          animation: alert 5s ease forwards;
+}
+
+.alert_success {
+  background: #90C290;
+}
+
+.alert_error {
+  background: #bf1a2f;
+}
+
+@-webkit-keyframes alert {
+  0%, 100% {
+    top: -10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  10%, 90% {
+    top: 20px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes alert {
+  0%, 100% {
+    top: -10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  10%, 90% {
+    top: 20px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 .blot-btn {
   padding: 20px 30px 20px 40px;
   background: url("../img/btn_bg.png") center center/100% 100% no-repeat;
@@ -225,7 +280,7 @@ body._lock {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 calc(17px + 18 * ((100vw - 992px) / (1920 - 992)));
+  padding: 0 calc(8px + 27 * ((100vw - 992px) / (1920 - 992)));
   color: #252525;
   -webkit-transition: all 250ms cubic-bezier(0.37, 0, 0.63, 1);
   -o-transition: all 250ms cubic-bezier(0.37, 0, 0.63, 1);

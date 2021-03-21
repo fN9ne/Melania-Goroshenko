@@ -90,6 +90,7 @@
 
 .courses-slide__cost-label {
   font-size: 15px;
+  text-transform: uppercase;
 }
 
 .courses-slide:before,

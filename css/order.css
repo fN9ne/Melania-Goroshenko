@@ -1,5 +1,5 @@
 .order {
-  padding: 100px 0;
+  padding: 100px 0 0;
   overflow: hidden;
   position: relative;
 }
@@ -192,7 +192,7 @@
 
 @media (max-width: 992px) {
   .order {
-    padding: 175px 0 85px;
+    padding: 175px 0 0;
   }
 
   .order-parallax_2 {

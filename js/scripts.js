@@ -183,6 +183,100 @@ function move(){
 move();
 */;
 $(document).ready(function(){
+	const global_form = $("form");
+	for (let i = 0; i < global_form.length; i++) {
+		let form_class = global_form.eq(i).attr("id");
+		let form = $("#"+form_class);
+		let form_type = global_form.eq(i).attr('data-type');
+		form.on("submit", function() {
+			formSend(event, $(this));
+		});
+		function formSend(event, form) {
+			event.preventDefault();
+			let error = formValidate(form);
+			formData.push({"name": "type", "value": form_type});
+			let formData = form.serializeArray();
+			/* если всё верно */
+			if (error === 0) {
+				$(".popup__content").addClass("_sending");
+				$.ajax({
+					type: "POST",
+					url: "/sendmail.php",
+					data: formData,
+					complete: function() {
+						$(".popup__content").removeClass("_sending");
+						form[0].reset();
+						if (form.find('.select')) {
+							let sel = form.find('.select');
+							for (let i = 0; i < sel.length; i++) {
+								let sel_this = sel.eq(i);
+								let curr = sel_this.find('.select__current');
+								let list = sel_this.find('.select__list');
+								list.append(curr.find('li'));
+								curr.html(curr.attr('data-ph'));
+							}
+						};
+					},
+					success: function(data) {
+						formAlert("success", data);
+					},
+					error: function(data) {
+						formAlert("error", data);
+					},
+				});
+			}
+			/* если есть ошибки */
+			else {
+				formAlert("error", "Дані некоректні");
+			}
+		};
+		function formValidate(form) {
+			let error = 0;
+			let input_check = form.find("input, textarea");
+			for (let i = 0; i < input_check.length; i++) {
+				let input = input_check.eq(i);
+				input.on("focus", function() { formRemoveError(input) });
+				formRemoveError(input);
+				if (input.attr("id") == "email") {
+					if (emailTest(input)) {
+						formAddError(input);
+						error++;
+					}
+				} else {
+					if (input.val() === "") {
+						formAddError(input);
+						error++;
+					};
+				};
+			};
+			return error;
+		};
+	};
+	function formAlert(status, text) {
+		if (status == "success") {
+			$(".wrapper").append(`<div class="alert alert_success">${text}</div>`);
+		}
+		if (status == "error") {
+			$(".wrapper").append(`<div class="alert alert_error">${text}</div>`);
+		}
+		setTimeout(() => {
+			$(".alert").remove();
+		}, 5000);
+	};
+	function formRemoveError(input) {
+		input.closest(".input").removeClass("_error");
+		input.removeClass("_error");
+	};
+	function formAddError(input) {
+		input.closest(".input").addClass("_error");
+		input.addClass("_error");
+	}; 
+	function emailTest(input) {
+		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.val());
+	};
+	// 
+	/* forms */
+	// 
 	if ($('.header').length > 0) {
 		let burger = $('.header__burger');
 		$('.menu__item, .header__btn').click(function() {

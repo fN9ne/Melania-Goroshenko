@@ -198,7 +198,7 @@ $(document).ready(function(){
 		if (end === -1) end = document.cookie.length;
 		return document.cookie.substring(beg, end);
 	}
-	if (getCookie("add") !== "0") {
+	if (getCookie("add") !== "1") {
 		setTimeout(() => {
 			$(".popup").addClass("_active");
 			$('body').addClass('_lock');
@@ -217,8 +217,8 @@ $(document).ready(function(){
 		function formSend(event, form) {
 			event.preventDefault();
 			let error = formValidate(form);
-			formData.push({"name": "type", "value": form_type});
 			let formData = form.serializeArray();
+			formData.push({"name": "type", "value": form_type});
 			/* если всё верно */
 			if (error === 0) {
 				$(".popup__content").addClass("_sending");

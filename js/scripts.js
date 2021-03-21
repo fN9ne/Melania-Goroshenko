@@ -183,6 +183,27 @@ function move(){
 move();
 */;
 $(document).ready(function(){
+	/* popup */
+	$(".popup__close").click(function() {
+		$(".popup").removeClass("_active");
+		document.cookie = "add=1;max-age=3600";
+	});
+	function getCookie(name) {
+		name += "=";
+		beg = document.cookie.indexOf(name);
+		if (beg === -1) return -1;
+		else beg += name.length;
+		end = document.cookie.indexOf(";", beg);
+		if (end === -1) end = document.cookie.length;
+		return document.cookie.substrind(start, end);
+	}
+	if (getCookie("add") !== "0") {
+		setTimeout(() => {
+			$(".popup").addClass("_active");
+		}, 10000);
+	}
+
+
 	const global_form = $("form");
 	for (let i = 0; i < global_form.length; i++) {
 		let form_class = global_form.eq(i).attr("id");

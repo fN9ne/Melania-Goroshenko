@@ -37,11 +37,20 @@
   color: #272727;
 }
 
+.footer__copyright a {
+  color: #272727;
+  text-decoration: underline;
+}
+
 @media (min-width: 992px) {
   .footer__menu .menu__item a:hover {
     color: #252525;
     opacity: 1;
     background: transparent;
+  }
+
+  .footer__copyright a:hover {
+    text-decoration: none;
   }
 }
 

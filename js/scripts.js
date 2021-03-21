@@ -186,6 +186,7 @@ $(document).ready(function(){
 	/* popup */
 	$(".popup__close").click(function() {
 		$(".popup").removeClass("_active");
+		$('body').removeClass('_lock');
 		document.cookie = "add=1;max-age=3600";
 	});
 	function getCookie(name) {
@@ -200,6 +201,7 @@ $(document).ready(function(){
 	if (getCookie("add") !== "0") {
 		setTimeout(() => {
 			$(".popup").addClass("_active");
+			$('body').addClass('_lock');
 		}, 10000);
 	}
 

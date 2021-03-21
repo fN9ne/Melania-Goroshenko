@@ -196,13 +196,13 @@ $(document).ready(function(){
 		else beg += name.length;
 		end = document.cookie.indexOf(";", beg);
 		if (end === -1) end = document.cookie.length;
-		return document.cookie.substrind(start, end);
+		return document.cookie.substrind(beg, end);
 	}
 	if (getCookie("add") !== "0") {
 		setTimeout(() => {
 			$(".popup").addClass("_active");
 			$('body').addClass('_lock');
-		}, 10000);
+		}, 5000);
 	}
 
 

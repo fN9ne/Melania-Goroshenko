@@ -182,6 +182,12 @@ function move(){
 //Вызываем функцию
 move();
 */;
+$(window).on("load", function() {
+	setTimeout(() => {
+		$(".preloader-container").fadeOut(1000);
+		$("body").removeClass("_lock");
+	}, 2500);
+});
 $(document).ready(function(){
 	/* popup */
 	$(".popup__close").click(function() {

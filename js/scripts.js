@@ -196,7 +196,7 @@ $(document).ready(function(){
 		else beg += name.length;
 		end = document.cookie.indexOf(";", beg);
 		if (end === -1) end = document.cookie.length;
-		return document.cookie.substrind(beg, end);
+		return document.cookie.substring(beg, end);
 	}
 	if (getCookie("add") !== "0") {
 		setTimeout(() => {
